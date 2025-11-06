@@ -1,0 +1,10 @@
+.Containerr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    font-size: 20px;
+    color: black;
+    font-family: cursive;
+}
