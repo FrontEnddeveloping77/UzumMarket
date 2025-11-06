@@ -47,7 +47,7 @@
     justify-content: space-between;
 }
 
-.Footer .left p{
+.Footer .left p {
     font-weight: 600;
     cursor: pointer;
 }
@@ -57,7 +57,26 @@
     gap: 30px;
 }
 
-.Footer .right p{
+.Footer .right p {
     color: gray;
     font-size: 13px;
+}
+
+@media screen and    (max-width: 716px) {
+    .Footer .Container .top {
+        gap: 100px;
+        flex-wrap: wrap;
+        align-items: center        ;
+        justify-content: center;
+    }
+
+    .Footer .Container .bottom{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 585px) {
+        .Footer .Container .top {
+        gap: 100px;
+    }
 }

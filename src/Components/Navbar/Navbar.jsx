@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import week from "../../Assets/icons/week.png";
@@ -13,8 +13,10 @@ import {
 } from "react-icons/fi";
 
 const Navbar = () => {
+    const [mobileOpen, setMobileOpen] = useState(false);
+
     return (
-        <div className="Navbar">
+        <div className="Navbar" style={{ position: 'relative' }}>
 
             <div className="nav-top">
                 <div className="Container">
@@ -34,13 +36,26 @@ const Navbar = () => {
             </div>
 
             <div className="nav-middle">
-                <div className="Container">
+                <div className="Container" style={{ alignItems: 'center' }}>
+
+                    <button
+                        className="catalog-btn"
+                        style={{ display: 'none' }}
+                    >
+                        <FiMenu size={18} />
+                        Katalog
+                    </button>
 
                     <Link to="/" className="logo">uzum market</Link>
 
-                    <button className="catalog-btn">
+                    {/* Mobile hamburger */}
+                    <button
+                        className="catalog-btn"
+                        onClick={() => setMobileOpen(prev => !prev)}
+                        aria-label="menu"
+                        style={{ marginLeft: 'auto', display: 'flex' }}
+                    >
                         <FiMenu size={18} />
-                        Katalog
                     </button>
 
                     <div className="search-box">
@@ -56,18 +71,31 @@ const Navbar = () => {
                     <div className="icons">
                         <Link to="/ErrorPage" className="icon">
                             <FiUser size={18} />
-                            Kirish
+                            <p>Kirish</p>
                         </Link>
                         <Link to="/ErrorPage" className="icon">
                             <FiHeart size={18} />
-                            Saralangan
+                            <p>Saralangan</p>
                         </Link>
                         <Link to="/ErrorPage" className="icon">
                             <FiShoppingBag size={18} />
-                            Savat
+                            <p>Savat</p>
                         </Link>
                     </div>
 
+                </div>
+            </div>
+
+            {/* Mobile menu block */}
+            <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    <Link to="/ErrorPage">Kirish</Link>
+                    <Link to="/ErrorPage">Sotuvchi bo’lish</Link>
+                    <Link to="/ErrorPage">Buyurtmalarim</Link>
+                    <Link to="/Elektronika">Elektronika</Link>
+                    <Link to="/ErrorPage">Kiyim</Link>
+                    <Link to="/ErrorPage">Poyabzallar</Link>
+                    <Link to="/ErrorPage">Aksessuarlar</Link>
                 </div>
             </div>
 
