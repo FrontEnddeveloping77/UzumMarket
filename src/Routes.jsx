@@ -10,7 +10,7 @@ export const Routes = () => {
             children: [
                 { path: "/", element: <Home /> },
                 { path: "/Elektronika", element: <Elektronika /> },
-                { path: "/ErrorPage", element: <Error /> },
+                { path: "/*", element: <Error /> },
             ],
         },
     ];
